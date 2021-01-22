@@ -5,10 +5,8 @@ const button = document.querySelector('.accept');
 function observerCallback(payload) {
     if (payload[0].intersectionRatio) {
         button.disabled = false;
-    
-    } else {
-        button.disabled = true;
-    }
+        observer.unobserve(terms.lastElementChild);
+    } 
 }
 
 const observer = new IntersectionObserver(observerCallback, {
@@ -17,3 +15,9 @@ const observer = new IntersectionObserver(observerCallback, {
 });
 
 observer.observe(terms.lastElementChild);
+
+const isAdmin = true;
+
+const showAminBar = () => console.log('showing admin bar');
+
+isAdmin && showAminBar()
